@@ -4,51 +4,55 @@
     {
         static void Main(string[] args)
         {
-            DerivedClass obj = new DerivedClass();
-            obj.Display();
+            D d = new D();
+            E e = new E();
+
+            d.Display();
+            ((A)e).Display();
+            ((B)d).Display();
+            ((A)d).Display();
         }
 
     }
+    
 
-    class BaseClass
+    class A
     {
-        public virtual int Counter
-        {
-            get;
-            set;
-        }
-
         public virtual void Display()
         {
-            Console.WriteLine("Метод класса BaseClass");
+            Console.WriteLine("A");
         }
     }
 
-    class DerivedClass : BaseClass
+    class B:A
+    {
+        public new void Display()
+        {
+            Console.WriteLine("B");
+        }
+    }
+
+    class C:A
     {
         public override void Display()
         {
-            base.Display();
-            Console.WriteLine("Метод класса DerivedClass");
+                Console.WriteLine("C");
         }
+    }
 
-        public override int Counter
+    class D:B
+    {
+        public new void Display()
         {
-            get
-            {
-                return Counter;
-            }
-            set
-            {
-                if(value<0)
-                {
-                    Console.WriteLine("Нет");
-                }
-                else
-                {
-                    Counter=value;
-                }
-            }
+            Console.WriteLine("D");
+        }
+    }
+
+    class E:C
+    {
+        public new void Display()
+        {
+            Console.WriteLine("E");
         }
     }
 
