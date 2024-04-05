@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            
+            DerivedClass obj = new DerivedClass();
+            obj.Display();
         }
 
     }
@@ -16,10 +17,21 @@
             get;
             set;
         }
+
+        public virtual void Display()
+        {
+            Console.WriteLine("Метод класса BaseClass");
+        }
     }
 
     class DerivedClass : BaseClass
     {
+        public override void Display()
+        {
+            base.Display();
+            Console.WriteLine("Метод класса DerivedClass");
+        }
+
         public override int Counter
         {
             get
