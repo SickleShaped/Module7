@@ -4,27 +4,40 @@
     {
         static void Main(string[] args)
         {
-            SmartHelper helper = new SmartHelper("Олег");
-            helper.Greetings("Грег");
-
-            Console.ReadKey();
+            
         }
 
     }
 
-    class SmartHelper
+    class BaseClass
     {
-        private string name;
-
-        public SmartHelper(string name)
+        public virtual int Counter
         {
-            this.name = name;
-        }
-
-        public void Greetings(string name)
-        {
-            Console.WriteLine("Привет, {0}, я интеллектуальный помощник {1}", name, this.name);
+            get;
+            set;
         }
     }
-    
+
+    class DerivedClass : BaseClass
+    {
+        public override int Counter
+        {
+            get
+            {
+                return Counter;
+            }
+            set
+            {
+                if(value<0)
+                {
+                    Console.WriteLine("Нет");
+                }
+                else
+                {
+                    Counter=value;
+                }
+            }
+        }
+    }
+
 }
