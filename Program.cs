@@ -9,11 +9,27 @@
 
     }
 
-     class Record<T1,T2>
+    class Engine { }
+    class ElectricEngine : Engine { }
+
+    class GasEngine : Engine { }
+
+    class CarPart { }
+
+    class Battery : CarPart { }
+
+    class Differential : CarPart { }
+
+    class Wheel : CarPart { }
+
+    class Car<TEngine> where TEngine : Engine
     {
-        public T1 Id;
-        public T2 Value;
-        public DateTime Date;
+        public TEngine Engine;
+
+        public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart
+        {
+
+        }
     }
 
 }
