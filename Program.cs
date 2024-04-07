@@ -4,55 +4,26 @@
     {
         static void Main(string[] args)
         {
-            D d = new D();
-            E e = new E();
+            int num1 = 3;
+            int num2 = 58;
 
-            d.Display();
-            ((A)e).Display();
-            ((B)d).Display();
-            ((A)d).Display();
+            Helper.Swap(
+            ref num1, ref num2
+            ) ;
+
+            Console.WriteLine(num1); //58
+            Console.WriteLine(num2); //3
         }
 
     }
     
-
-    class A
+    public class Helper
     {
-        public virtual void Display()
+        public static void Swap(ref int num1, ref int num2)
         {
-            Console.WriteLine("A");
-        }
-    }
-
-    class B:A
-    {
-        public new void Display()
-        {
-            Console.WriteLine("B");
-        }
-    }
-
-    class C:A
-    {
-        public override void Display()
-        {
-                Console.WriteLine("C");
-        }
-    }
-
-    class D:B
-    {
-        public new void Display()
-        {
-            Console.WriteLine("D");
-        }
-    }
-
-    class E:C
-    {
-        public new void Display()
-        {
-            Console.WriteLine("E");
+            int x = num1;
+            num1 = num2;
+            num2 = x;
         }
     }
 
