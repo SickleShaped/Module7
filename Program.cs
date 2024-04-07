@@ -4,26 +4,31 @@
     {
         static void Main(string[] args)
         {
-            int num1 = 3;
-            int num2 = 58;
-
-            Helper.Swap(
-            ref num1, ref num2
-            ) ;
-
-            Console.WriteLine(num1); //58
-            Console.WriteLine(num2); //3
+            int a = 100;
+            int b = a.GetNegative();
+            Console.WriteLine(b);
         }
 
     }
-    
-    public class Helper
+
+    static class Extension
     {
-        public static void Swap(ref int num1, ref int num2)
+        public static int GetPositive(this int source)
         {
-            int x = num1;
-            num1 = num2;
-            num2 = x;
+            if(source<0)
+            {
+                return -source;
+            }
+            else { return source; }
+        }
+
+        public static int GetNegative(this int source)
+        {
+            if (source > 0)
+            {
+                return -source;
+            }
+            else { return source; }
         }
     }
 
