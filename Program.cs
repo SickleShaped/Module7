@@ -4,32 +4,16 @@
     {
         static void Main(string[] args)
         {
-            int a = 100;
-            int b = a.GetNegative();
-            Console.WriteLine(b);
+            
         }
 
     }
 
-    static class Extension
+     class Record<T1,T2>
     {
-        public static int GetPositive(this int source)
-        {
-            if(source<0)
-            {
-                return -source;
-            }
-            else { return source; }
-        }
-
-        public static int GetNegative(this int source)
-        {
-            if (source > 0)
-            {
-                return -source;
-            }
-            else { return source; }
-        }
+        public T1 Id;
+        public T2 Value;
+        public DateTime Date;
     }
 
 }
